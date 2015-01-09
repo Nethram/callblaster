@@ -82,7 +82,7 @@ Open extensions_custom.conf located in /etc/asterisk in a text editor and add fo
 
 ;callblaster context
 
-[callblaster]
+[callblaster]  
 exten => 333,1,AGI(/var/www/.....path to..../callblaster.php)
 
 change path to callblaster.php script which is in your base directory of callblaster installation.
