@@ -9,7 +9,7 @@ Key Features
 -Supports multiple simultaneous calls to a list of numbers.  
 -Separate audio messages for each number.  
 -Receives DTMF inputs  
--Dialling Screen displays call status and DTMF response  
+-Dialing Screen displays call status and DTMF response  
 -Detailed log for each calls
 -Easy to use Management Panel
 
