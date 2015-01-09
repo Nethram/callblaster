@@ -8,7 +8,7 @@ Call blaster is simple in design and user interface so that anyone can install a
 Key Features
 ------------
 -Supports multiple simultaneous calls to a list of numbers.   
--Possiblity of separate audio messages for each number.   
+-Possibility of separate audio messages for each number.   
 -Receives DTMF inputs.   
 -Configurable redirect destinations to any asterisk  context and extension (external or internal number,ring groups,queue,ivr etc).   
 -Dialing Screen displays call status and DTMF response.  
