@@ -7,13 +7,14 @@ Call blaster is simple in design and user interface so that anyone can install a
 
 Key Features
 ------------
--Supports multiple simultaneous calls to a list of numbers.  
--Separate audio messages for each number.  
--Receives DTMF inputs  
--Configurable redirect destinations  with context and extension   
--Dialing Screen displays call status and DTMF response  
--Detailed log for each calls  
--Easy to use Management Panel
+-Supports multiple simultaneous calls to a list of numbers.   
+-Possiblity of separate audio messages for each number.   
+-Receives DTMF inputs.   
+-Configurable redirect destinations to any asterisk  context and extension (external or internal number,ring groups,queue,ivr etc).   
+-Dialing Screen displays call status and DTMF response.  
+-Detailed call log with call deposition and DTMF received.     
+-Uses regular outbound routing for broadcast,use any trunk or dialpattern.   
+-Easy to use Management Panel.  
 
 ..............................................
 Prerequisite
@@ -89,19 +90,46 @@ Please don't forget to reload asterisk, run core reload in asterisk console.
 
 6- Callblaster needs to run php functions  shell_exec or exec , please ensure your installation is able to run these functions.
 
-Now your Callblaster is ready to use, please go through following line to know how to make your first call blasting.
+Now your Callblaster is ready to use.
 
 
 How to use
 ----------
-Open you browser and point to your callblaster location, you will be directed to Call Blaster Management Panel.
+Open you browser and point to your callblaster directory, you will be directed to Call Blaster Management Panel.
 
 Call Blaster Management Panel has four sections such as Config, Upload and make Calls,Call Logs and Audio Files.
 
 Config section:
 
 This section helps you to set call interval and two destination contexts and extensions.  
-During callblasting your listener will be prompted to choose 1 or 2 and connected to chosen destination. Here you are setting these two destinations.
+During callblasting your listener will have options 1 and 2 for outbound IVR. Here you are setting these two destinations.
+
+Example:  
+Consider following destinations and outbound route are ready in your server.  
+  
+-IVR with feature code 10  
+-Queue setup with 700  
+-Ring group with 600  
+-Extensions 102,102 and 103  
+-Custom destination of [nethram] 500 for custom IVR  
+
+Example 1:  
+We are setting destination 1 for Extension 102 and 2 for Queue 700
+
+Change input fields in Config section, put Context [from-internal] for both and Extension 102 for first and 700 for second.  
+
+Example 2:  
+We are setting destination 1 for Extension 103 and 2 for IVR 10
+
+Change input fields in Config section, put Context [from-internal] for both and Extension 103 for first and 10 for second.  
+
+Example 3:  
+We are setting destination 1 for Ring group 600 and 2 for Custom destination [nethram] 500  
+
+Change input fields in Config section, put Context [from-internal] for first and [nethram] for second.
+Extension 600 for first and 500 for second.  
+
+
 
 Upload and make Calls:
 
@@ -111,12 +139,11 @@ Please check sample file numbers-sample.csv and keep the file format for your up
 
 Call Logs:
 
-From this section you can see what happened with your call blasting and what your listeners chosen.
+From this section you can see what happened with your call blasting and what your listeners chose.
 
 Audio Files:
 
 Here you can upload your custom audio files and make test calls to ensure everything working good.
-You can add custom files in any way by putting files in asterisk supported format in audio directory.
 
 
 
