@@ -1,5 +1,6 @@
 Callblaster
 ===========
+<img src="http://nethram.com/sandbox/callblaster-tutorial/callbalster-concept.png">
 Callblaster is an application written in PHP for Asterisk to send voice broadcasts. It can generate multiple simultaneous calls to a list of numbers and play a custom audio message. Callblaster can receive DTMF input options and connect to any predefined destinations.
 We can find different occasions where Callblaster can solve problems with minimum effort like event management, customer relations, staff management and where ever people like to hear from you.
 Call blaster is simple in design and user interface so that anyone can install and start call blasting  within few minutes. Following paragraphs will make you an expert in call blasting.
@@ -9,6 +10,7 @@ Key Features
 -Supports multiple simultaneous calls to a list of numbers.  
 -Separate audio messages for each number.  
 -Receives DTMF inputs  
+-Configurable redirect destinations  with context and extension   
 -Dialing Screen displays call status and DTMF response  
 -Detailed log for each calls  
 -Easy to use Management Panel
@@ -98,7 +100,7 @@ Call Blaster Management Panel has four sections such as Config, Upload and make 
 
 Config section:
 
-This section helps you to set call interval and two destination extensions and related context.
+This section helps you to set call interval and two destination contexts and extensions.  
 During callblasting your listener will be prompted to choose 1 or 2 and connected to chosen destination. Here you are setting these two destinations.
 
 Upload and make Calls:
@@ -124,6 +126,16 @@ Callblaster is developed at Nethram.Nethram is a Silicon Valley based telecommun
 
 Thank you for using Callblaster, please don't hesitate to write to us at
 support@nethram.com. Find more about us at our website www.nethram.com
+
+
+
+Screen shots
+============
+<img src="http://nethram.com/sandbox/callblaster-tutorial/panel.PNG">  
+
+<img src="http://nethram.com/sandbox/callblaster-tutorial/dialing_screen.png">  
+
+<img src="http://nethram.com/sandbox/callblaster-tutorial/audio-mgr.png">  
 
 
 
