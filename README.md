@@ -88,7 +88,7 @@ exten => 333,1,AGI(/var/www/.....path to..../callblaster.php)
 change path to callblaster.php script which is in your base directory of callblaster installation.
 Please don't forget to reload asterisk, run core reload in asterisk console.
 
-6- Callblaster needs to run php functions  shell_exec or exec , please ensure your installation is able to run these functions.
+6- Callblaster needs to run php functions  shell_exec and exec , please ensure your installation is able to run these functions.
 
 Now your Callblaster is ready to use.
 
