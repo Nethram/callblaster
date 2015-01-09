@@ -62,7 +62,7 @@ $basepath="/var/www/html/callblastergpl/";
 
 $agipath="/var/lib/asterisk/agi-bin/";
 
-$welcomeSound = $basepath."audio/welcome";
+$welcomeSound = $basepath."audio/testmenu";  
 //sound file without extension
 
 
