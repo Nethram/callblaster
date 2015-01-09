@@ -10,7 +10,7 @@ Key Features
 -Separate audio messages for each number.  
 -Receives DTMF inputs  
 -Dialing Screen displays call status and DTMF response  
--Detailed log for each calls
+-Detailed log for each calls  
 -Easy to use Management Panel
 
 ..............................................
