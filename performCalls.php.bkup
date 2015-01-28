@@ -14,6 +14,7 @@
 
 <html>
 <?php
+//$basepath="/var/www/html/callblastergpl/";
 
 require_once('connection.php');
 
@@ -35,15 +36,9 @@ return $array;
 
 }
 
-function spawn($cmd,$outputfile,$pidfile)
-{
- exec(sprintf("%s >> %s 2>&1 & echo $! >> %s", $cmd, $outputfile, $pidfile));
-}
 
 
-$reset_controls="pause=false\nstop=false";
-file_put_contents('control.ini', $reset_controls);
- 
+
 $config = parse_ini_file("config.ini",true);
 $interval = $config['callblaster']['interval'];
 
@@ -61,13 +56,8 @@ if($_POST['action']=="Upload and Initiate Calls")
 		
 		$msg = "Recieved File $dest at ".date("r",time());
 		file_put_contents("logs/uploads.txt",$msg,FILE_APPEND);
-
-		$command = "php ".$basepath."asyncCall.php $dest";
-		//echo $command;
-
-		spawn("$command","/tmp/".$_FILES['csvFile']['name'],"/tmp/pid_".$_FILES['csvFile']['name']);
 		
-		/*
+		
 		
 		$csv = array();
 		$lines = file($dest, FILE_IGNORE_NEW_LINES);
@@ -128,7 +118,7 @@ if($_POST['action']=="Upload and Initiate Calls")
 			file_put_contents("logs/callLog.txt",$msg,FILE_APPEND);
 
 			sleep($interval);
-		}*/
+		}
 				
 	}
 }
@@ -157,39 +147,5 @@ $(document).ready(function(){
 <center>
 <h2>Dialling Screen</h2>
 <h4><a href="index.php">Back to Home Page</a></h4></center>
-<script>
-$(document).ready(function(){
-	$("#pause-btn").click(function(){
-		var act=$("#pause-btn").val();
-		var chng='Start';
-		var chngval='start';
-	  	$.post("control.php",{action:act},function(data){
-	  		if(act=='start'){
-	  			chngval='pause';
-	  			chng='Pause';
-	  		}
-	  	$("#pause-btn").val(chngval);
-	  	$("#pause-btn").html(chng);
-		});
-	})
-	
-	$("#stop-btn").click(function(){
-	  $.post("control.php",{action:'stop'},function(data){
-	  	$("#pause-btn").attr('disabled','disabled');
-	  	$("#stop-btn").attr('disabled','disabled');
-		alert("Call blasting Stopped");
-		});
-	})
-	
-	
-})
-
-	
-	
-</script>
-<button id="pause-btn" value="pause">Pause</button><button id="stop-btn">Stop</button>
 <div style="border-style:double" id="logger"></div>
-
-
-
 </html>

@@ -30,12 +30,12 @@ Webserver
 
 Installation
 ------------
-1-Copy all files and directories to a directory  in your web-server where asterisk is installed.
+1-On your Asterisk server,copy all files and directories to a web directory (eg; /var/www/html/Callblaster).
 
-2- Open config.php in a text editor and change database configurations and base path to the installed directory.
+2-Open config.php in a text editor and change database configurations and base path to the installed directory.
 
-Provide your MySql host,database name, database user and database password. Give all privileges on the database to the user.
-
+Provide your MySql host,database name, database user and database password. Give all privileges on the database to the user. 
+You may use same database for Asterisk and Callblaster, credentials can be found at /etc/asterisk/freepbx.conf  
 
 
 //Database configuration   
@@ -60,11 +60,12 @@ You can change welcome sound file path here.
 
 $basepath="/var/www/html/callblastergpl/";
 
-$agipath="/var/lib/asterisk/agi-bin/";
+$agipath="/var/lib/asterisk/agi-bin/";  
 
-$welcomeSound = $basepath."audio/testmenu";  
-//sound file without extension
-
+//Set default audio file, it will be used if no audio file specified in number list.  
+//...........................................      
+  
+$welcomeSound = $basepath."audio/welcome";  
 
 //...........................................
 

@@ -10,15 +10,19 @@
 */
 
 require_once("connection.php");
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 if(isset($_REQUEST['file']))
 {
 	$file = $_REQUEST['file'];
+	$file=substr($basepath,0,-1).$file;
 	header('Content-type: text/csv');
 	header("Content-disposition: attachment;filename=log.csv");
 	
-
+	//echo $file;
+	//echo "<br>";
+	//echo $_REQUEST['file'];
 	
 	$query = "select * from logs where csvFile='$file' and type='heading'";
 
@@ -62,10 +66,6 @@ if(isset($_REQUEST['file']))
 	echo $ret;
 	
 	
-	
-	
-	
-
 }
 
 

@@ -8,16 +8,20 @@
 *....................
 * www.nethram.com
 */
-require('config.php');
+require_once('config.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+
 function displayAudio()
 {
-
+	global $basepath;
 	 exec("ls -t audio/",$files);
 	 echo("<table>");
   	foreach($files as $file)
-  	{
-    		$size     = filesize("files/$file")/1024;
-      		$filedate = date ("m/d/Y H:i:s", filemtime("files/$file"));
+  	{		
+    		//$size     = filesize($basepath."/files/$file")/1024;
+      		//$filedate = date ("m/d/Y H:i:s", filemtime($basepath."/files/$file"));
         	$link="audio/$file";
       		echo "<tr><td>$file</td> <td> <a target='_blank' href='$link'>Download</a> </td> <td>
       		
@@ -36,6 +40,7 @@ function displayAudio()
 
 }
 
+if(isset($_POST['action'])):
 if($_POST['action']=="Upload Audio")
 {
 
@@ -51,13 +56,14 @@ if($_POST['action']=="Upload Audio")
 		$dest = $basepath."/audio/$fileName.wav";
 		move_uploaded_file($_FILES['audioFile']['tmp_name'],$tmpDest);
 		
-		shell_exec('asterisk -x "file convert '. $tmpDest.' '.$dest.'"',$output);
-		
+		$out=shell_exec('asterisk -rx "file convert '. $tmpDest.' '.$dest.'"');
+		var_dump($out);
 		echo "<script type='text/javascript'>alert('Audio Added Successfully');</script>";
 	
 	}
 
 }
+endif;
 
 ?>
 <html>

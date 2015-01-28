@@ -12,21 +12,25 @@
 //Database configuration
 //.............................................
 $db_host="localhost";
-$db_name="callblaster";
-$db_user="root";
-$db_pass="passw0rd";
+$db_name="asterisk";
+$db_user="asteriskuser";
+$db_pass="amp109";
 //.............................................
 
+
+//caller id and name
+$caller_id="Nethram<4088271111>";
+//..............................................
 
 
 //paths
 //..............................................
 
-$basepath="/var/www/html/callblastergpl/";
+$basepath="/var/www/html/callblaster/";
 
 $agipath="/var/lib/asterisk/agi-bin/";
 
-$welcomeSound = $basepath."audio/testmenu";
+$welcomeSound = $basepath."audio/welcome";
 //sound file without extension
 //..............................................
 

@@ -34,6 +34,40 @@ $exten2 = $config['press2']['extension'];
 	<body>
 		<center><h2>Call Blaster Management Panel</h2></center>
 		<h3>Config</h3>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script>
+$(document).ready(function(){
+	$("#pause-btn").click(function(){
+		var act=$("#pause-btn").val();
+		var chng='Start';
+		var chngval='start';
+	  	$.post("control.php",{action:act},function(data){
+	  		if(act=='start'){
+	  			chngval='pause';
+	  			chng='Pause';
+	  		}
+	  	$("#pause-btn").val(chngval);
+	  	$("#pause-btn").html(chng);
+		});
+	})
+	
+	$("#stop-btn").click(function(){
+	  $.post("control.php",{action:'stop'},function(data){
+	  	$("#pause-btn").attr('disabled','disabled');
+	  	$("#stop-btn").attr('disabled','disabled');
+		alert("Call blasting Stopped");
+		});
+	})
+	
+	
+})
+
+	
+	
+</script>
+<div style="float: right">
+<button id="pause-btn" value="pause">Pause</button><button id="stop-btn">Stop</button>
+</div>		
 		<form method="post" action="index.php">
 			<table>
 			<tr>
