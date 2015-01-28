@@ -46,12 +46,6 @@ $db_user="root";
 $db_pass="passw0rd";     
 //..........................................
 
-
-
-Provide path to your directory and Asterisk agi path.
-You can change welcome sound file path here.
-
-
 Provide path to your directory and Asterisk agi path.
 You can change welcome sound file path here.
 
