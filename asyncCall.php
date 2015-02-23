@@ -92,7 +92,10 @@ if(file_exists($argv[1]))
 		$result = mysql_query($query) or die("Database Error");
 		file_put_contents("logs/callLog.txt",$msg,FILE_APPEND);
 
-		sleep($interval);
+		//sleep($interval);
+		$interval=$interval*1000000;
+		usleep($interval);
+		
 		$i++;
 	elseif($controls['pause']):
 		sleep(1);
